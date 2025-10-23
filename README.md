@@ -18,7 +18,6 @@ src/
 │   └── styles/                 # Future stylesheets
 ├── navigation/
 │   ├── StackNavigator.tsx      # Main navigation with custom tab bar
-│   └── TabNavigator.tsx        # Legacy navigator (can be removed)
 ├── screens/
 │   ├── CategoriesScreen.tsx
 │   ├── HomeScreen.tsx          # Main screen with product listings
