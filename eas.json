@@ -22,11 +22,13 @@
       }
     },
     "production": {
+      "automaticReleaseCreation": true,
       "ios": {
         "autoIncrement": true
       },
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "package": "com.nousher.deliveryapp"
       }
     }
   },
