@@ -8,7 +8,7 @@ export interface CartItem {
 }
 
 export interface CartState {
-  items: CartItem[];
+    items: CartItem[];
   totalItems: number;
 }
 
@@ -23,4 +23,17 @@ export interface AddToCartPayload {
 export interface UpdateQuantityPayload {
   id: string;
   quantity: number;
+}
+
+// Context API types
+export interface CartContextType {
+  state: CartState;
+  addToCart: (payload: AddToCartPayload) => void;
+  removeFromCart: (id: string) => void;
+  updateQuantity: (payload: UpdateQuantityPayload) => void;
+  incrementQuantity: (id: string) => void;
+  decrementQuantity: (id: string) => void;
+  clearCart: () => void;
+  getSubtotal: () => number;
+  getItemCount: () => number;
 }

@@ -12,8 +12,7 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectCartItems, addToCart } from '../store/slices/cartSlice';
+import { useCart } from '../store/CartContext';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import type { RootStackParamList } from '../navigation/StackNavigator';
 import { COLORS, SPACING, BORDER_RADIUS, FONT_SIZE } from '../common';
@@ -21,8 +20,8 @@ import { COLORS, SPACING, BORDER_RADIUS, FONT_SIZE } from '../common';
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const insets = useSafeAreaInsets();
-  const cartItems = useSelector(selectCartItems);
-  const dispatch = useDispatch();
+  const { state, addToCart } = useCart();
+  const { items: cartItems } = state;
 
   return (
     <SafeAreaView style={styles.container} edges={['top', 'right', 'left']}>
@@ -139,13 +138,13 @@ const HomeScreen: React.FC = () => {
                 <Text style={styles.productPrice}>$1.99</Text>
                 <TouchableOpacity
                   style={styles.addButton}
-                  onPress={() => dispatch(addToCart({
+                  onPress={() => addToCart({
                     id: 'organic-bananas',
                     name: 'Organic Bananas',
                     price: '1.99',
                     image: 'https://images.pexels.com/photos/2872755/pexels-photo-2872755.jpeg?auto=compress&cs=tinysrgb&w=400',
                     brand: 'Fresh Fields'
-                  }))}
+                  })}
                 >
                   <Ionicons name="add" size={20} color={COLORS.white} />
                 </TouchableOpacity>
@@ -173,13 +172,13 @@ const HomeScreen: React.FC = () => {
                 <Text style={styles.productPrice}>$4.50</Text>
                 <TouchableOpacity
                   style={styles.addButton}
-                  onPress={() => dispatch(addToCart({
+                  onPress={() => addToCart({
                     id: 'sourdough-bread',
                     name: 'Sourdough Bread',
                     price: '4.50',
                     image: 'https://images.pexels.com/photos/209206/pexels-photo-209206.jpeg?auto=compress&cs=tinysrgb&w=400',
                     brand: 'Fresh Fields'
-                  }))}
+                  })}
                 >
                   <Ionicons name="add" size={20} color={COLORS.white} />
                 </TouchableOpacity>
@@ -207,13 +206,13 @@ const HomeScreen: React.FC = () => {
                 <Text style={styles.productPrice}>$3.25</Text>
                 <TouchableOpacity
                   style={styles.addButton}
-                  onPress={() => dispatch(addToCart({
+                  onPress={() => addToCart({
                     id: 'fresh-produce',
                     name: 'Fresh Produce',
                     price: '3.25',
                     image: 'https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400',
                     brand: 'Fresh Fields'
-                  }))}
+                  })}
                 >
                   <Ionicons name="add" size={20} color={COLORS.white} />
                 </TouchableOpacity>
