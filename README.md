@@ -17,7 +17,7 @@ src/
 │   ├── index.ts                # Main common exports
 │   └── styles/                 # Future stylesheets
 ├── navigation/
-│   ├── StackNavigator.tsx      # Main navigation with custom tab bar
+│   ├── StackNavigator.tsx      # Main navigation
 ├── screens/
 │   ├── CategoriesScreen.tsx
 │   ├── HomeScreen.tsx          # Main screen with product listings
